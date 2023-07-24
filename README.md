@@ -12,6 +12,13 @@ You can play the BugSquasher game by visiting the live demo [here](https://bug-s
 
 ### Getting Started
 
+To get started with the BugSquasher project, you first need to install its dependencies. Make sure you have Node.js installed on your system, and then run the following command in your terminal from the project's root folder:
+
+```bash
+npm install
+```
+This command will read the package.json file and install all the necessary dependencies.
+
 To run the development server, execute one of the following commands:
 
 ```bash
