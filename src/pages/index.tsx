@@ -4,7 +4,6 @@ import Bug from "@/components/Bug";
 import BugPosition from "@/interfaces/BugPosition";
 import { randomPosition } from "@/utils/functions";
 
-
 export default function BugSquasher() {
   const [score, setScore] = useState<number>(0);
   const [bugPosition, setBugPosition] = useState<BugPosition>({ x: 0, y: 0 });
@@ -21,7 +20,7 @@ export default function BugSquasher() {
 
   useEffect(() => {
     const gameTimer = setTimeout(() => {
-      setIsFinish(true)
+      setIsFinish(true);
       setRemovingBug(true);
     }, 60000);
     return () => clearTimeout(gameTimer);
@@ -50,12 +49,16 @@ export default function BugSquasher() {
 
   return (
     <div>
-      { isFinish && 
-        <div className="game-container">
-        <h1>Game Over!</h1>
-        <p>Your final score: {score}</p>
-        </div>  
-      }
+      <div className="game-container">
+        {isFinish ? (
+          <div>
+            <h1>Game Over!</h1>
+            <p>Your final score: {score}</p>
+          </div>
+        ) : (
+            <p>Score: {score}</p>
+        )}
+      </div>
       {removingBug ? null : <Bug position={bugPosition} onClick={squishBug} />}
     </div>
   );
